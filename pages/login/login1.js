@@ -1,4 +1,4 @@
-export function banner2() {
+function banner2() {
     let div = document.createElement('div');
     div.className = "div-banner2";
 
@@ -17,17 +17,22 @@ export function banner2() {
     p.textContent = "Each men and women has their own style. Geeta help you to create your unique style.";
     div.appendChild(p);
 
-    // Botón LOG IN (borde negro)
+    // Botón LOG IN (modificado para cargar login2.js)
     let loginBtn = document.createElement('div');
     loginBtn.textContent = "LOG IN";
     loginBtn.className = "btn-login";
-    div.appendChild(loginBtn);
-
-    loginBtn.addEventListener('click',()=>{
-        div.classList.add ("ocultar");
-        document.body.appendChild(banner());
+    
+    loginBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+    
+        // Limpia el contenido actual (por si quieres que desaparezca antes de cambiar de página)
+        document.getElementById('app').innerHTML = "";
+    
+        // Redirige a otro HTML
+        window.location.href = "../../pages/login2/login2.html"; // cambia a la ruta real de tu HTML2
     });
-
+    
+    div.appendChild(loginBtn);
 
     // Span OR
     let orSpan = document.createElement('span');
@@ -35,7 +40,7 @@ export function banner2() {
     orSpan.className = "span-or";
     div.appendChild(orSpan);
 
-    // Botón REGISTER (color #6342EB)
+    // Botón REGISTER
     let registerBtn = document.createElement('a');
     registerBtn.href = "#";
     registerBtn.textContent = "REGISTER";
@@ -45,4 +50,7 @@ export function banner2() {
     return div;
 }
 
-document.body.appendChild(banner2());
+// Carga inicial del banner
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('app').appendChild(banner2());
+});

@@ -8,7 +8,7 @@ export function createLoginSection() {
 
     // Flecha atrás
     const backArrow = document.createElement('img');
-    backArrow.src = '../../assets/icons/BackButton.png'; // Ruta a tu SVG o PNG
+    backArrow.src = '../../assets/BackButton.png'; // Ruta a tu SVG o PNG
     backArrow.className = 'back-arrow';
     backArrow.addEventListener('click', () => {
         window.location.href = 'login1.html';
@@ -31,7 +31,7 @@ export function createLoginSection() {
 
     // Imagen de la chica
     const girlImg = document.createElement('img');
-    girlImg.src = "../../assets/images/Vector.png"; // Ruta de tu imagen PNG/SVG
+    girlImg.src = "../../assets/Vector.png"; // Ruta de tu imagen PNG/SVG
     girlImg.className = 'girl-img';
     topSection.appendChild(girlImg);
 
@@ -48,7 +48,7 @@ export function createLoginSection() {
     const emailWrapper = document.createElement('div');
     emailWrapper.className = 'input-wrapper';
     const emailIcon = document.createElement('img');
-    emailIcon.src = "../../assets/icons/EnvelopeSimple.png";
+    emailIcon.src = "../../assets/EnvelopeSimple.png";
     const emailInput = document.createElement('input');
     emailInput.type = 'email';
     emailInput.placeholder = 'Enter your email';
@@ -65,7 +65,7 @@ export function createLoginSection() {
     const passWrapper = document.createElement('div');
     passWrapper.className = 'input-wrapper';
     const passIcon = document.createElement('img');
-    passIcon.src = '../../assets/icons/Lock.png';
+    passIcon.src = '../../assets/Lock.png';
     const passInput = document.createElement('input');
     passInput.type = 'password';
     passInput.placeholder = 'Enter your password';

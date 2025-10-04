@@ -1,3 +1,4 @@
+// login2.js
 export function createLoginSection() {
     const container = document.createElement('div');
     container.className = 'login-container';
@@ -6,12 +7,23 @@ export function createLoginSection() {
     const topSection = document.createElement('div');
     topSection.className = 'login-top';
 
-    // Flecha atrás
+    // Flecha atrás (ya no redirige, ahora vuelve al banner anterior)
     const backArrow = document.createElement('img');
-    backArrow.src = '../../assets/BackButton.png'; // Ruta a tu SVG o PNG
+    backArrow.src = '../../assets/BackButton.png'; 
     backArrow.className = 'back-arrow';
-    backArrow.addEventListener('click', () => {
-        window.location.href = 'login1.html';
+    backArrow.addEventListener('click', async () => {
+        const app = document.getElementById('app');
+        app.innerHTML = ''; // Limpia el login actual
+
+        // Importa dinámicamente el banner de login1.js
+        const module = await import('../login1/login1.js');
+        if (module && module.banner2) {
+            app.appendChild(module.banner2());
+        } else if (module && module.default) {
+            app.appendChild(module.default());
+        } else {
+            console.error("No se encontró banner2 en login1.js");
+        }
     });
     topSection.appendChild(backArrow);
 
@@ -31,7 +43,7 @@ export function createLoginSection() {
 
     // Imagen de la chica
     const girlImg = document.createElement('img');
-    girlImg.src = "../../assets/Vector.png"; // Ruta de tu imagen PNG/SVG
+    girlImg.src = "../../assets/Vector.png";
     girlImg.className = 'girl-img';
     topSection.appendChild(girlImg);
 
@@ -111,7 +123,3 @@ export function createLoginSection() {
 
     return container;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('app').appendChild(createLoginSection());
-});

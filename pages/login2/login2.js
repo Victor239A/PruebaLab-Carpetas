@@ -1,21 +1,20 @@
-// login2.js
 export function createLoginSection() {
     const container = document.createElement('div');
     container.className = 'login-container';
 
-    // Sección morada con imagen chica y flecha
+    
     const topSection = document.createElement('div');
     topSection.className = 'login-top';
 
-    // Flecha atrás (ya no redirige, ahora vuelve al banner anterior)
+   
     const backArrow = document.createElement('img');
     backArrow.src = '../../assets/BackButton.png'; 
     backArrow.className = 'back-arrow';
     backArrow.addEventListener('click', async () => {
         const app = document.getElementById('app');
-        app.innerHTML = ''; // Limpia el login actual
+        app.innerHTML = '';
 
-        // Importa dinámicamente el banner de login1.js
+       
         const module = await import('../login1/login1.js');
         if (module && module.banner2) {
             app.appendChild(module.banner2());
@@ -27,7 +26,7 @@ export function createLoginSection() {
     });
     topSection.appendChild(backArrow);
 
-    // Contenido texto
+    
     const h2 = document.createElement('h2');
     h2.textContent = 'Welcome Back!';
     topSection.appendChild(h2);
@@ -41,7 +40,7 @@ export function createLoginSection() {
     loginLabel.textContent = 'LOG IN';
     topSection.appendChild(loginLabel);
 
-    // Imagen de la chica
+   
     const girlImg = document.createElement('img');
     girlImg.src = "../../assets/Vector.png";
     girlImg.className = 'girl-img';
@@ -49,7 +48,7 @@ export function createLoginSection() {
 
     container.appendChild(topSection);
 
-    // Formulario
+   
     const form = document.createElement('form');
 
     // Email
@@ -86,7 +85,7 @@ export function createLoginSection() {
     passGroup.appendChild(passLabel);
     passGroup.appendChild(passWrapper);
 
-    // Opciones (remember / forgot)
+  
     const optionsRow = document.createElement('div');
     optionsRow.className = 'options-row';
     const rememberLabel = document.createElement('label');
@@ -101,13 +100,12 @@ export function createLoginSection() {
     optionsRow.appendChild(rememberLabel);
     optionsRow.appendChild(forgotLink);
 
-    // Botón login
+  
     const loginBtn = document.createElement('button');
     loginBtn.type = 'submit';
     loginBtn.className = 'btn-login';
     loginBtn.textContent = 'LOG IN';
 
-    // Link de registro
     const registerText = document.createElement('p');
     registerText.className = 'register-text';
     registerText.innerHTML = 'Not registered yet? <a href="#">Create an Account</a>';
